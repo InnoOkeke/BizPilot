@@ -1,0 +1,15 @@
+{
+  "slug": "bizpilot-ai",
+  "name": "BizPilot AI",
+  "tagline": "AI-native operations workspace for small businesses: customer Q&A, quotes, invoices, orders, and follow-ups.",
+  "description": "BizPilot AI is an AI-native small business operations workspace built for Anna AI OS. It grounds customer replies in your verified catalog and FAQs, calculates precision-checked quotes and invoices, enforces structured order pipelines, and surfaces pending lead follow-ups for human-in-the-loop review.",
+  "category": "productivity",
+  "homepage_url": "https://github.com/InnoOkeke/BizPilot",
+  "support_url": "https://github.com/InnoOkeke/BizPilot/issues",
+  "privacy_url": "https://github.com/InnoOkeke/BizPilot/blob/main/PRIVACY.md",
+  "cover_url": "https://raw.githubusercontent.com/InnoOkeke/BizPilot/main/assets/cover.svg",
+  "logo_file": "assets/logo.svg",
+  "screenshots": [
+    "assets/cover.svg"
+  ]
+}

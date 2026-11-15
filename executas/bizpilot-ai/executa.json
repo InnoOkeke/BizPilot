@@ -1,0 +1,9 @@
+{
+  "slug": "bizpilot-ai-tools",
+  "name": "BizPilot AI Tools",
+  "version": "0.1.0",
+  "executa_type": "tool",
+  "description": "Deterministic business calculations, profile validation, state transitions, and prompt grounding for BizPilot AI.",
+  "tool_id": "tool-leprof-bizpilot-ai-tools-a9tswjax",
+  "type": "python"
+}

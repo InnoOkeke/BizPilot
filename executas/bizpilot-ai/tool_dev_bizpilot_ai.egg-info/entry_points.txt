@@ -1,0 +1,2 @@
+[console_scripts]
+tool-dev-bizpilot-ai = bizpilot_ai_plugin:main

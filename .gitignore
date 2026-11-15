@@ -1,0 +1,12 @@
+node_modules/
+.anna/
+executas/**/.anna/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.key
+*.pem
+.DS_Store
+Thumbs.db

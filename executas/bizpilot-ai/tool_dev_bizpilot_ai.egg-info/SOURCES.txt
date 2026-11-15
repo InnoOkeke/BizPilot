@@ -1,0 +1,8 @@
+bizpilot_ai_plugin.py
+pyproject.toml
+tests/test_plugin.py
+tool_dev_bizpilot_ai.egg-info/PKG-INFO
+tool_dev_bizpilot_ai.egg-info/SOURCES.txt
+tool_dev_bizpilot_ai.egg-info/dependency_links.txt
+tool_dev_bizpilot_ai.egg-info/entry_points.txt
+tool_dev_bizpilot_ai.egg-info/top_level.txt

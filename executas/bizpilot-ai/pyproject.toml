@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tool-dev-bizpilot-ai"
+version = "0.1.0"
+description = "Executa for the bizpilot-ai Anna App"
+requires-python = ">=3.10"
+
+[project.scripts]
+"tool-dev-bizpilot-ai" = "bizpilot_ai_plugin:main"
+
+[tool.setuptools]
+py-modules = ["bizpilot_ai_plugin"]

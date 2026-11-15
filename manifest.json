@@ -1,0 +1,46 @@
+{
+  "schema": 4,
+  "required_executas": [
+    {
+      "tool_id": "tool-leprof-bizpilot-ai-tools-a9tswjax"
+    }
+  ],
+  "tags": [
+    "bizpilot-ai",
+    "small-business",
+    "invoicing",
+    "crm",
+    "automation"
+  ],
+  "ui": {
+    "bundle": {
+      "format": "static-spa",
+      "entry": "index.html",
+      "external_origins": []
+    },
+    "views": [
+      {
+        "name": "main",
+        "title": "BizPilot AI",
+        "default": true,
+        "default_size": {
+          "w": 1120,
+          "h": 740
+        },
+        "min_size": {
+          "w": 480,
+          "h": 480
+        }
+      }
+    ],
+    "csp_overrides": {},
+    "state_merge": "last_writer_wins"
+  },
+  "dev": {
+    "fixtures": [
+      "fixtures/*.jsonl"
+    ],
+    "seed_storage": {},
+    "user_id": 1
+  }
+}
