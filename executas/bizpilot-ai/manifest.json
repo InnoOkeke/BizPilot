@@ -1,0 +1,324 @@
+{
+  "name": "tool-leprof-bizpilot-ai-tools-a9tswjax",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ping",
+      "description": "Health-check method verifying the BizPilot Executa runtime.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "validate_business_profile",
+      "description": "Validate and normalize a small business profile, currency, tax rate, catalog items, and FAQs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 3
+          },
+          "tax_rate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "contact_email": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "contact_phone": {
+            "type": "string",
+            "maxLength": 40
+          },
+          "address": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "payment_instructions": {
+            "type": "string",
+            "maxLength": 600
+          },
+          "catalog": {
+            "type": "array",
+            "maxItems": 200,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "unit_price": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "maxLength": 32
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 400
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "unit_price"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "faqs": {
+            "type": "array",
+            "maxItems": 200,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "question": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                }
+              },
+              "required": [
+                "id",
+                "question",
+                "answer"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "business_name",
+          "currency",
+          "tax_rate"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "calculate_document",
+      "description": "Deterministically calculate line-item totals, discount, tax, and grand total for a quote or invoice.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "doc_type": {
+            "type": "string",
+            "enum": [
+              "quote",
+              "invoice"
+            ]
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 3
+          },
+          "tax_rate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "discount_amount": {
+            "type": "number",
+            "minimum": 0
+          },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "quantity": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "unit_price": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "description",
+                "quantity",
+                "unit_price"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "doc_type",
+          "currency",
+          "tax_rate",
+          "items"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "transition_document_status",
+      "description": "Validate a quote/invoice status transition or convert an accepted/sent quote into an invoice.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "doc_type": {
+            "type": "string",
+            "enum": [
+              "quote",
+              "invoice"
+            ]
+          },
+          "current_status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "target_status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "convert_to_invoice": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "doc_type",
+          "current_status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "transition_order_status",
+      "description": "Validate an order pipeline status transition.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "current_status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "target_status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          }
+        },
+        "required": [
+          "current_status",
+          "target_status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "build_customer_reply_prompt",
+      "description": "Construct a prompt-injection-safe grounding prompt from verified business data and an untrusted customer message.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 3
+          },
+          "customer_name": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "customer_message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "catalog": {
+            "type": "array",
+            "maxItems": 200
+          },
+          "faqs": {
+            "type": "array",
+            "maxItems": 200
+          },
+          "matching_orders": {
+            "type": "array",
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "business_name",
+          "currency",
+          "customer_message"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "identify_pending_followups",
+      "description": "Scan quotes and invoices to deterministically rank items requiring customer follow-up.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "documents": {
+            "type": "array",
+            "maxItems": 500
+          },
+          "min_age_days": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 365
+          },
+          "reference_iso": {
+            "type": "string",
+            "maxLength": 64
+          }
+        },
+        "required": [
+          "documents"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
