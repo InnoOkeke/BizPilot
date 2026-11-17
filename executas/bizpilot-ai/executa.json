@@ -5,26 +5,26 @@
   "executa_type": "tool",
   "description": "Deterministic business calculations, profile validation, state transitions, and prompt grounding for BizPilot AI.",
   "tool_id": "tool-leprof-bizpilot-ai-tools-a9tswjax",
-  "type": "python",
+  "type": "node",
   "distribution": {
     "type": "binary",
     "executable_name": "bizpilot-ai-tools",
     "supports_protocol": true,
-    "binary_urls": {
+    "binary_artifacts": {
       "darwin-arm64": {
-        "url": "https://github.com/InnoOkeke/BizPilot/releases/download/v0.1.1/bizpilot-ai-tools-darwin-arm64.tar.gz",
+        "path": "dist/bizpilot-ai-tools-darwin-arm64.tar.gz",
         "entrypoint": "bizpilot-ai-tools"
       },
       "darwin-x86_64": {
-        "url": "https://github.com/InnoOkeke/BizPilot/releases/download/v0.1.1/bizpilot-ai-tools-darwin-x86_64.tar.gz",
+        "path": "dist/bizpilot-ai-tools-darwin-x86_64.tar.gz",
         "entrypoint": "bizpilot-ai-tools"
       },
       "linux-x86_64": {
-        "url": "https://github.com/InnoOkeke/BizPilot/releases/download/v0.1.1/bizpilot-ai-tools-linux-x86_64.tar.gz",
+        "path": "dist/bizpilot-ai-tools-linux-x86_64.tar.gz",
         "entrypoint": "bizpilot-ai-tools"
       },
       "windows-x86_64": {
-        "url": "https://github.com/InnoOkeke/BizPilot/releases/download/v0.1.1/bizpilot-ai-tools-windows-x86_64.zip",
+        "path": "dist/bizpilot-ai-tools-windows-x86_64.zip",
         "entrypoint": "bizpilot-ai-tools.exe"
       }
     }

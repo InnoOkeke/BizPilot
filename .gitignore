@@ -1,6 +1,7 @@
 node_modules/
 .anna/
 executas/**/.anna/
+executas/**/dist/
 __pycache__/
 *.py[cod]
 .venv/
